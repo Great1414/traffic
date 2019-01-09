@@ -9,8 +9,9 @@
 ## (二)、结构说明
 本项目的文件主要分为3部分：
  * 1.data-输入数据
-test:测试数据
-train：训练数据
+test:测试数据（不全）
+train：训练数据（不全）
+数据源：https://pan.baidu.com/s/1o8uZ9k2
 
  * 2.model-网络搭建及训练
 traffic_network.py搭建LeNet网络
