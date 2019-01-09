@@ -22,7 +22,7 @@ data_input.py读取数据，x和y的创建，乱序，归一化，one_hot等
 
  * 4.result-预测结果
 
-2.测试
+二、测试
 =========
 
 ```python
