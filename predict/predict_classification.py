@@ -21,25 +21,23 @@ batch_size = 32
 epochs = 40
 
 test_path = "../data/test"
-image_paths = sorted(list(paths.list_images(test_path)))#提取所有图片地址
+image_paths = sorted(list(paths.list_images(test_path)))#提取图片
 model = keras.models.load_model("traffic_model.h5")#加载模型
 for each in image_paths:
     image = cv2.imread(each)
-    image = cv2.resize(image,(norm_size,norm_size))
-    image = img_to_array(image)/255.0
+    image = cv2.resize(image,(norm_size,norm_size))#读取图片，修改尺寸
+    image = img_to_array(image)/255.0#归一化
+    image = np.expand_dims(image,axis=0)#单张图片，改变维度
     result = model.predict(image)#分类预测
-    proba = np.max(result)#提取最大概率
+    proba = np.max(result)#最大概率
     predict_label = np.argmax(result)#提取最大概率下标
-    label = int(each.split(os.path.sep)[-2])#提取标签
-    plt.imshow(image[0])#显示图片
+    label = int(each.split(os.path.sep)[-2])#提取图片路径上的标签
+    plt.imshow(image[0])#显示
     plt.title("label:{},predict_label:{}, proba:{:.2f}".format(label,predict_label,proba))
     plt.show()
 
-
-
-
-
 #test_x,test_y = data_input.load_data("../data/train",norm_size,class_num)
+
 #model = keras.models.load_model("traffic_model.h5")
 #result = model.predict( ,batch_size=1,verbose=0)
 #print(result)
