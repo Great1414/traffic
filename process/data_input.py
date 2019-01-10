@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # encoding: utf-8
-from keras.preprocessing.image import img_to_array
-from keras.utils import to_categorical
+from keras.preprocessing.image import img_to_array#图片转为array
+from keras.utils import to_categorical#相当于one-hot
 from imutils import paths
 import cv2
 import numpy as np
@@ -9,10 +9,10 @@ import random
 import os
 
 def load_data(path,norm_size,class_num):
-    data = []
-    label = []
-    image_paths = sorted(list(paths.list_images(path)))#imutils模块中paths可以读取文件路径
-    random.seed(0)
+    data = []#数据x
+    label = []#标签y
+    image_paths = sorted(list(paths.list_images(path)))#imutils模块中paths可以读取所有文件路径
+    random.seed(0)#保证每次数据顺序一致
     random.shuffle(image_paths)#将所有的文件路径打乱
     for each_path in image_paths:
         image = cv2.imread(each_path)#读取文件

@@ -20,11 +20,14 @@ traffic_train.py训练网络
  * 3.process-数据处理
 data_input.py读取数据，x和y的创建，乱序，归一化，one_hot等
 
- * 4.result-预测结果
+ * 4.predict-数据分类预测
+ predict_classification.py分类预测
+
+ * 5.result-预测结果
 
 二、测试
 =========
 
 ```python
-cd clone model#文件目录
+cd model#文件目录
 执行traffic_train.py文件

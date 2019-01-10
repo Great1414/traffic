@@ -18,7 +18,7 @@ def train(aug, model,train_x,train_y,test_x,test_y):
                         validation_data=(test_x,test_y),steps_per_epoch=len(train_x)//batch_size,
                         epochs=epochs,verbose=1)
     #拟合，具体fit_generator请查阅其他文档,steps_per_epoch是每次迭代，需要迭代多少个batch_size，validation_data为test数据，直接做验证，不参与训练
-
+    model.save("../predict/traffic_model.h5")
     plt.style.use("ggplot")#matplotlib的美化样式
     plt.figure()
     N = epochs
